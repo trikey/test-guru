@@ -6,12 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+user = User.create(first_name: 'Ivan',
+                   last_name: 'Belitskii',
+                   email: 'belitskii@gmail.com',
+                   password: '123123',
+                   password_confirmation: '123123',
+                   permission: 1)
+
 categories = Category.create([{ title: 'php' }, { title: 'ruby' }])
 
 tests = []
-tests << Test.create(title: 'php for beginners', level: 1, category: categories.first)
-tests << Test.create(title: 'active record for monsters', level: 3, category: categories.last)
-tests << Test.create(title: 'ruby for php developers', level: 2, category: categories.last)
+tests << Test.create(title: 'php for beginners', level: 1, category: categories.first, author: user)
+tests << Test.create(title: 'active record for monsters', level: 3, category: categories.last, author: user)
+tests << Test.create(title: 'ruby for php developers', level: 2, category: categories.last, author: user)
 
 questions = []
 questions << Question.create(body: 'What does PHP stand for?', test: tests.first)
@@ -35,13 +42,6 @@ Answer.create(body: 'Ruby do not support hashes', question: questions.third)
 Answer.create(body: 'A block consists of chunks of code', correct: 1, question: questions.fourth)
 Answer.create(body: 'Function', question: questions.fourth)
 Answer.create(body: 'Ruby do not support blocks', question: questions.fourth)
-
-user = User.create(first_name: 'Ivan',
-                   last_name: 'Belitskii',
-                   email: 'belitskii@gmail.com',
-                   password: '123123',
-                   password_confirmation: '123123',
-                   permission: 1)
 
 UserTest.create(user: user, test: tests.first, status: 1, errors_count: 0)
 UserTest.create(user: user, test: tests.last, status: 2, errors_count: 1)
