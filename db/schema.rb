@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203121902) do
+ActiveRecord::Schema.define(version: 20171205203321) do
 
-  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "body", null: false
     t.boolean "correct", default: false, null: false
     t.bigint "question_id", null: false
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20171203121902) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "body", null: false
     t.bigint "test_id", null: false
     t.datetime "created_at", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171203121902) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
-  create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title", null: false
     t.integer "level", default: 1, null: false
     t.bigint "category_id", null: false
@@ -44,9 +44,10 @@ ActiveRecord::Schema.define(version: 20171203121902) do
     t.bigint "author_id"
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
+    t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
   end
 
-  create_table "user_tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "user_tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "test_id"
     t.integer "status", limit: 1
@@ -57,7 +58,7 @@ ActiveRecord::Schema.define(version: 20171203121902) do
     t.index ["user_id"], name: "index_user_tests_on_user_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "first_name", null: false
     t.string "last_name"
     t.string "email", null: false
