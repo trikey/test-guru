@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_many :user_tests, dependent: :destroy
-  has_many :passing_tests, through: :user_tests, source: :tests
   has_many :tests, foreign_key: :author_id, dependent: :nullify
 
   scope :tests_by_level, lambda { |level|
