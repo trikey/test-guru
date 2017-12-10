@@ -1,0 +1,9 @@
+<%= form_tag(test_questions_url(@test), method: :post) do %>
+    <%= label_tag('question[body]', 'Enter body of question') %>
+    <%= text_field_tag('question[body]') %>
+    <br/>
+    <%= label_tag('question[test_id]', 'Select test') %>
+    <%= collection_select(:question, :test_id, @tests, :id, :title) %>
+    <br/>
+    <%= submit_tag(:Save) %>
+<% end %>
