@@ -1,4 +1,4 @@
-<%= form_tag(test_questions_url(@test), method: :post) do %>
+<%= form_tag(test_questions_url(@test)) do %>
     <%= label_tag('question[body]', 'Enter body of question') %>
     <%= text_field_tag('question[body]') %>
     <br/>

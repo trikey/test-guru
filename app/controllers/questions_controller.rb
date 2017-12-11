@@ -1,10 +1,10 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: %i[index create new]
+  before_action :find_tests, only: %i[index create new]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render plain: Test.all.pluck(:title).join("\n")
+    render plain: @test.questions.pluck(:body).join("\n")
   end
 
   def show
@@ -12,23 +12,22 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(question_params)
+    question = @test.questions.create(question_params)
     redirect_to question_path(question)
   end
 
-  def new
-    @tests = Test.all
-  end
+  def new; end
 
   def destroy
     Question.destroy(params[:id])
-    head 204
+    render plaint: 'Question was deleted'
   end
 
   private
 
-  def find_test
+  def find_tests
     @test = Test.find(params[:test_id])
+    @tests = Test.all
   end
 
   def rescue_with_question_not_found
@@ -36,6 +35,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 end
