@@ -1,5 +1,4 @@
 class Test < ApplicationRecord
-
   belongs_to :category
   has_many :user_tests, dependent: :destroy
   has_many :users, through: :user_tests
@@ -16,5 +15,4 @@ class Test < ApplicationRecord
 
   validates :title, presence: true
   validates :level, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1 }
-  validates :name, uniqueness: { scope: :level }
 end
