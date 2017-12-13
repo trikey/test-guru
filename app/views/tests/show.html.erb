@@ -1,0 +1,19 @@
+<%= link_to 'Back to tests', tests_path %>
+<p><%= @test.title %></p>
+<p>Category: <%= @test.category.title %></p>
+<p>Level: <%= @test.level %></p>
+<br/>
+<p>Questions</p>
+<ul>
+  <% @test.questions.each do |question| %>
+      <li>
+        <%= question.body %>
+        <%= link_to 'edit', edit_question_path(question) %>
+        <%= link_to 'delete',
+                    question_path(question),
+                    method: :delete,
+                    data: { confirm: 'O, RLY?' } %>
+      </li>
+  <% end %>
+</ul>
+<%= link_to 'New question', new_test_question_path(@test) %>

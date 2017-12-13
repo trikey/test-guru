@@ -1,0 +1,18 @@
+<%= link_to 'Back to test questions', test_questions_path(@test) %>
+<%= form_with model: model, local: true do |form| %>
+  <% if @question.errors.present? %>
+    <ul>
+      <% @question.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+  <%= hidden_field_tag 'question[test_id]', @test.id  %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

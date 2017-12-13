@@ -1,0 +1,17 @@
+<div>
+  <h1>Tests</h1>
+  <ul>
+    <% @tests.each do |test| %>
+      <li>
+        <%= test.title %>
+        <%= link_to 'show', test_path(test) %>
+        <%= link_to 'edit', edit_test_path(test) %>
+        <%= link_to 'delete',
+                    test_path(test),
+                    method: :delete,
+                    data: { confirm: 'O, RLY?' } %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to 'new test', new_test_path %>
+</div>
