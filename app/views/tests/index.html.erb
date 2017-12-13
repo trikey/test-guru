@@ -3,7 +3,7 @@
   <ul>
     <% @tests.each do |test| %>
       <li>
-        <%= test.title %>
+        <%= test.title %>(<%= test.questions.count %>)
         <%= link_to 'show', test_path(test) %>
         <%= link_to 'edit', edit_test_path(test) %>
         <%= link_to 'delete',
