@@ -1,0 +1,8 @@
+<li>
+  <%= question.body %>
+  <%= link_to 'edit', edit_test_question_path(question.test, question) %>
+  <%= link_to 'delete',
+              test_question_path(question.test, question),
+              method: :delete,
+              data: { confirm: 'O, RLY?' } %>
+</li>

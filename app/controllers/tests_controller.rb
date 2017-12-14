@@ -33,7 +33,7 @@ class TestsController < ApplicationController
   end
 
   def destroy
-    Test.destroy(params[:id])
+    @test.destroy
     redirect_to tests_path
   end
 
@@ -41,8 +41,6 @@ class TestsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:id])
-    @category = @test.category
-    @questions = @test.questions
   end
 
   def rescue_with_test_not_found

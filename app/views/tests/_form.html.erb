@@ -1,12 +1,6 @@
 <%= link_to 'Back to tests', tests_path %>
 <%= form_with model: @test, local: true do |form| %>
-  <% if @test.errors.present? %>
-    <ul>
-      <% @test.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render 'shared/errors', model: @test %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
