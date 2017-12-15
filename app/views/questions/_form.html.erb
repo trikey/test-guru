@@ -1,5 +1,5 @@
 <%= link_to 'Back to test questions', test_path(@question.test) %>
-<%= form_with model: [@question.test, @question], local: true do |form| %>
+<%= form_with model: [@test, @question], local: true do |form| %>
   <%= render 'shared/errors', model: @question %>
   <p>
     <%= form.label :body %><br>

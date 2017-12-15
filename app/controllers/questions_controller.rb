@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_tests, only: %i[create new]
+  before_action :find_test, only: %i[create new]
   before_action :find_question, only: %i[show edit update destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -36,9 +36,8 @@ class QuestionsController < ApplicationController
 
   private
 
-  def find_tests
+  def find_test
     @test = Test.find(params[:test_id])
-    @tests = Test.all
   end
 
   def find_question
