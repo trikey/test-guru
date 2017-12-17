@@ -1,5 +1,4 @@
 class TestPassage < ApplicationRecord
-
   PASSING = 1
   PASSED = 3
   PASSED_WITH_ERRORS = 2
