@@ -1,8 +1,11 @@
 <h1>Pass the <%= @test_passage.test.title %>></h1>
 
+<p>Всего вопросов: <%= @test_passage.test.questions.count %></p>
+<p>Вопрос №<%= @test_passage.current_question_number %></p>
 <b>
   <%= @test_passage.current_question.body %>
 </b>
+<br>
 
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
     <%= form.collection_radio_buttons :answer_id, @test_passage.current_question.answers, :id, :body,

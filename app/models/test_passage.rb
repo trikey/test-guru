@@ -1,4 +1,5 @@
 class TestPassage < ApplicationRecord
+
   PASSING = 1
   PASSED = 3
   PASSED_WITH_ERRORS = 2
@@ -24,15 +25,16 @@ class TestPassage < ApplicationRecord
   private
 
   def correct_answer?(answer_id)
-    true if Answer.find(answer_id).correct
-    false
+    Answer.find(answer_id).correct
   end
 
   def next_question
+    self.current_question_number += 1
     test.questions.order(:id).where('id > ?', current_question.id).first
   end
 
   def before_validation_set_first_question
     self.current_question = test.questions.first
+    self.current_question_number = 1
   end
 end
