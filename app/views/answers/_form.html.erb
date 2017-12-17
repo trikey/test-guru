@@ -1,0 +1,14 @@
+<%= link_to 'Back to question answers', question_path(@answer.question) %>
+<%= form_with model: [@question, @answer], local: true do |form| %>
+  <%= render 'shared/errors', model: @answer %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+  <p>
+    <%= form.label :correct %><br>
+    <%= form.check_box :correct %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -42,6 +42,3 @@ Answer.create(body: 'Ruby do not support hashes', question: questions.third)
 Answer.create(body: 'A block consists of chunks of code', correct: 1, question: questions.fourth)
 Answer.create(body: 'Function', question: questions.fourth)
 Answer.create(body: 'Ruby do not support blocks', question: questions.fourth)
-
-UserTest.create(user: user, test: tests.first, status: 1, errors_count: 0)
-UserTest.create(user: user, test: tests.last, status: 2, errors_count: 1)

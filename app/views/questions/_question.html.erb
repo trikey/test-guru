@@ -1,5 +1,6 @@
 <li>
   <%= question.body %>
+  <%= link_to 'show', question_path(question) %>
   <%= link_to 'edit', edit_question_path(question) %>
   <%= link_to 'delete',
               question_path(question),

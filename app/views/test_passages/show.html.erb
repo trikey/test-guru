@@ -1,0 +1,17 @@
+<h1>Pass the <%= @test_passage.test.title %>></h1>
+
+<b>
+  <%= @test_passage.current_question.body %>
+</b>
+
+<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+    <%= form.collection_radio_buttons :answer_id, @test_passage.current_question.answers, :id, :body,
+                                      include_hidden: false do |b| %>
+        <p>
+          <%= b.radio_button %>
+          <%= b.label %>
+        </p>
+    <% end %>
+
+    <%= form.submit 'Next question' %>
+<% end %>

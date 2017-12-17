@@ -1,9 +1,10 @@
 class User < ApplicationRecord
-  has_many :user_tests, dependent: :destroy
-  has_many :tests, foreign_key: :author_id, dependent: :nullify
+  has_many :authored_tests, class_name: 'Test', foreign_key: :author_id, dependent: :nullify
+  has_many :test_passages, dependent: :destroy
+  has_many :tests, through: :test_passages
 
   scope :tests_by_level, lambda { |level|
-    Test.joins(:user_tests).where(user_tests: { status: Test::PASSING }).where(level: level)
+    Test.joins(:test_passages).where(test_passages: { status: TestPassage::PASSING }).where(level: level)
   }
 
   validates :first_name,            presence: true
@@ -11,4 +12,8 @@ class User < ApplicationRecord
   validates :password,              presence: true
   validates :password_confirmation, presence: true
   validates :permission,            presence: true
+
+  def test_passage(test)
+    test_passages.order(id: :desc).find_by(test_id: test.id)
+  end
 end
