@@ -4,7 +4,7 @@ class TestPassagesController < ApplicationController
   def show; end
 
   def result
-    @percent = (@test_passage.correct_questions * 100 / @test_passage.test.questions.count).round
+    @correct_answers_percent = @test_passage.correct_answers_percent
   end
 
   def update

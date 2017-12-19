@@ -1,7 +1,7 @@
 <h1>Pass the <%= @test_passage.test.title %>></h1>
 
 <p>Всего вопросов: <%= @test_passage.test.questions.count %></p>
-<p>Вопрос №<%= @test_passage.current_question_number %></p>
+<p>Вопрос №<%= @test_passage.current_question.number %></p>
 <b>
   <%= @test_passage.current_question.body %>
 </b>

@@ -2,8 +2,6 @@ class AnswersController < ApplicationController
   before_action :find_question, only: %i[create new]
   before_action :find_answer, only: %i[show edit update destroy]
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
-
   def show; end
 
   def edit; end
@@ -42,10 +40,6 @@ class AnswersController < ApplicationController
 
   def find_question
     @question = Question.find(params[:question_id])
-  end
-
-  def rescue_with_answer_not_found
-    render plain: 'Record was not found'
   end
 
   def answer_params

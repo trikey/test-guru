@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
 
   scope :tests_by_level, lambda { |level|
-    Test.joins(:test_passages).where(test_passages: { status: TestPassage::PASSING }).where(level: level)
+    Test.joins(:test_passages).where(test_passages: { status: TestPassage.status[:passing] }).where(level: level)
   }
 
   validates :first_name,            presence: true
