@@ -3,9 +3,7 @@ class TestPassagesController < ApplicationController
 
   def show; end
 
-  def result
-    @correct_answers_percent = @test_passage.correct_answers_percent
-  end
+  def result; end
 
   def update
     @test_passage.accept!(params[:answer_id])

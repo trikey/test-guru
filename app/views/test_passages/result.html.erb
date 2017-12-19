@@ -1,6 +1,6 @@
 <h1>The <%= @test_passage.test.title %> completed!</h1>
-<p><%= @correct_answers_percent %>% out of 100% were correct answers</p>
-<% if @correct_answers_percent >= 85 %>
+<p><%= @test_passage.correct_answers_percent %>% out of 100% were correct answers</p>
+<% if @test_passage.correct_answers_percent >= 85 %>
   <p class="passed">Test passed!!!</p>
 <% else %>
   <p class="failed">Test failed!!!</p>

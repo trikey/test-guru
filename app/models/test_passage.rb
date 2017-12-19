@@ -7,8 +7,7 @@ class TestPassage < ApplicationRecord
 
   scope :passing, -> { where(status: status[:passing]) }
 
-  before_validation :before_validation_set_first_question, on: :create
-  before_update :next_question, on: :update
+  before_save :before_save_set_current_question
 
   def accept!(answer_id)
     self.correct_questions += 1 if correct_answer?(answer_id)
@@ -29,11 +28,8 @@ class TestPassage < ApplicationRecord
     Answer.find(answer_id).correct
   end
 
-  def next_question
-    self.current_question = test.questions.order(:number).where('number > ?', current_question.number).first
-  end
-
-  def before_validation_set_first_question
-    self.current_question = test.questions.first
+  def before_save_set_current_question
+    return self.current_question = test.questions.order(:number).first if current_question.nil?
+    self.current_question = test.questions.order(:number).find_by('number > ?', current_question.number)
   end
 end

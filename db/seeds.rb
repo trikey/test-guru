@@ -22,7 +22,9 @@ tests << Test.create(title: 'ruby for php developers', level: 2, category: categ
 
 questions = []
 questions << Question.create(body: 'What does PHP stand for?', number: 1, test: tests.first)
-questions << Question.create(body: 'PHP server scripts are surrounded by delimiters, which?', number: 2, test: tests.first)
+questions << Question.create(body: 'PHP server scripts are surrounded by delimiters, which?',
+                             number: 2,
+                             test: tests.first)
 
 questions << Question.create(body: 'What is a hash in ruby?', number: 1, test: tests.last)
 questions << Question.create(body: 'What is a block in ruby?', number: 2, test: tests.last)
