@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+.passed {
+    color: green;
+}
+.failed {
+    color: red;
+}

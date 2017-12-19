@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205203321) do
+ActiveRecord::Schema.define(version: 20171219063220) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "body", null: false
@@ -32,7 +32,22 @@ ActiveRecord::Schema.define(version: 20171205203321) do
     t.bigint "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "number"
     t.index ["test_id"], name: "index_questions_on_test_id"
+  end
+
+  create_table "test_passages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "test_id"
+    t.integer "status", limit: 1
+    t.integer "errors_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "correct_questions", default: 0
+    t.bigint "current_question_id"
+    t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
+    t.index ["test_id"], name: "index_test_passages_on_test_id"
+    t.index ["user_id"], name: "index_test_passages_on_user_id"
   end
 
   create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,17 +60,6 @@ ActiveRecord::Schema.define(version: 20171205203321) do
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
-  end
-
-  create_table "user_tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "user_id"
-    t.bigint "test_id"
-    t.integer "status", limit: 1
-    t.integer "errors_count", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["test_id"], name: "index_user_tests_on_test_id"
-    t.index ["user_id"], name: "index_user_tests_on_user_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -71,6 +75,7 @@ ActiveRecord::Schema.define(version: 20171205203321) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "tests"
+  add_foreign_key "test_passages", "questions", column: "current_question_id"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
 end

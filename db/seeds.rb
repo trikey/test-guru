@@ -21,11 +21,13 @@ tests << Test.create(title: 'active record for monsters', level: 3, category: ca
 tests << Test.create(title: 'ruby for php developers', level: 2, category: categories.last, author: user)
 
 questions = []
-questions << Question.create(body: 'What does PHP stand for?', test: tests.first)
-questions << Question.create(body: 'PHP server scripts are surrounded by delimiters, which?', test: tests.first)
+questions << Question.create(body: 'What does PHP stand for?', number: 1, test: tests.first)
+questions << Question.create(body: 'PHP server scripts are surrounded by delimiters, which?',
+                             number: 2,
+                             test: tests.first)
 
-questions << Question.create(body: 'What is a hash in ruby?', test: tests.last)
-questions << Question.create(body: 'What is a block in ruby?', test: tests.last)
+questions << Question.create(body: 'What is a hash in ruby?', number: 1, test: tests.last)
+questions << Question.create(body: 'What is a block in ruby?', number: 2, test: tests.last)
 
 Answer.create(body: 'Hypertext processor', correct: 1, question: questions.first)
 Answer.create(body: 'Personal Hypertext processor', question: questions.first)
@@ -42,6 +44,3 @@ Answer.create(body: 'Ruby do not support hashes', question: questions.third)
 Answer.create(body: 'A block consists of chunks of code', correct: 1, question: questions.fourth)
 Answer.create(body: 'Function', question: questions.fourth)
 Answer.create(body: 'Ruby do not support blocks', question: questions.fourth)
-
-UserTest.create(user: user, test: tests.first, status: 1, errors_count: 0)
-UserTest.create(user: user, test: tests.last, status: 2, errors_count: 1)
