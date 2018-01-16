@@ -12,7 +12,7 @@ class User < ApplicationRecord
   }
 
   validates :first_name,  presence: true
-  validates :email,       presence: true
+  validates :email,       presence: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/, uniqueness: true
 
   has_secure_password
 
