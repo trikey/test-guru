@@ -1,0 +1,11 @@
+<%= link_to 'Test-Guru', '/' %>
+<% if logged_in? %>
+  <p>Welcome, <b><%= current_user.first_name %> Guru</b></p>
+  <p><%= link_to 'Logout', logout_path %></p>
+  <p><%= link_to 'Tests', tests_path %></p>
+<% else %>
+  <p>
+    <%= link_to 'Login', login_path %>
+    <%= link_to 'Sign up', signup_path %>
+  </p>
+<% end %>
