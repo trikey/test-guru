@@ -1,8 +1,8 @@
 <%= link_to 'Test-Guru', '/' %>
 <% if user_signed_in? %>
-  <p>Welcome, <b><%= current_user.first_name %> Guru</b></p>
+  <p>Welcome to Admin Panel, <b><%= "#{current_user.first_name} #{current_user.last_name}" %> Guru</b></p>
   <p><%= link_to 'Logout', destroy_user_session_path, method: :delete %></p>
-  <p><%= link_to 'Tests', tests_path %></p>
+  <p><%= link_to 'Tests', admin_tests_path %></p>
 <% else %>
   <p>
     <%= link_to 'Login', new_user_session_path %>

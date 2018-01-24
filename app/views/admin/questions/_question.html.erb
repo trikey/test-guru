@@ -1,0 +1,9 @@
+<li>
+  <%= question.body %>
+  <%= link_to 'show', admin_question_path(question) %>
+  <%= link_to 'edit', edit_admin_question_path(question) %>
+  <%= link_to 'delete',
+              admin_question_path(question),
+              method: :delete,
+              data: { confirm: 'O, RLY?' } %>
+</li>

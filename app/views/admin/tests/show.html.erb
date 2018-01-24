@@ -1,0 +1,10 @@
+<%= link_to 'Back to tests', admin_tests_path %>
+<p><%= @test.title %></p>
+<p>Category: <%= @test.category.title %></p>
+<p>Level: <%= @test.level %></p>
+<br/>
+<p>Questions</p>
+<ul>
+  <%= render @test.questions %>
+</ul>
+<%= link_to 'New question', new_admin_test_question_path(@test) %>

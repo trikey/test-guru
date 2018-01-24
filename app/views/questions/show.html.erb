@@ -1,9 +1,0 @@
-<h2><%= @question.body %></h2>
-<br/>
-<p>Answers</p>
-<ul>
-  <%= render @question.answers %>
-</ul>
-<%= link_to 'New answer', new_question_answer_path(@question) %>
-<br>
-<%= link_to 'Back to test questions', test_path(@question.test) %>
