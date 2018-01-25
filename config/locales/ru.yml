@@ -1,0 +1,74 @@
+ru:
+  tests:
+    index:
+      header: "Тесты"
+
+  helpers:
+    select:
+      prompt: "Выбрать"
+    submit:
+      create: "Создать"
+      update: "Обновить"
+    label:
+      test:
+        title: "Название теста"
+        level: "Уровень сложности"
+        category_id: "Категория"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} ошибка"
+        few: "%{count} ошибки"
+        many: "%{count} ошибок"
+        other: "%{count} ошибки"
+    footer:
+      author: "Иван Белицкий"
+      for_tests: "Проект для прохождения тестов"
+      test_project: "Учебный проект в онлайн-школе Thinknetica"
+    nav:
+      welcome: "Привет"
+      guru: "Гуру"
+
+  admin:
+    nav:
+      welcome: "Добро пожаловать в админку"
+      guru: "Гуру"
+    tests:
+      index:
+        header: "Тесты"
+        new_test: "Добавить тест"
+      new:
+        header: "Создание нового теста"
+      edit:
+        header: "Редактирование теста"
+      show:
+        questions: "Вопросы"
+        new_question: "Новый вопрос"
+
+  tests:
+    test:
+      start: "Начать"
+
+  test_passages:
+    show:
+      next_question: "Следующий вопрос"
+      passage_of_test: "Прохождение теста"
+      total_questions: "Всего вопросов"
+      question: "Вопрос"
+    result:
+      completed: "Завершен"
+      out_of: "из 100% были верными"
+      passed: "Тест пройден!!!"
+      failed: "Тест не пройден!!!"
+
+  common:
+    login: "Войти"
+    tests: "Тесты"
+    logout: "Выйти"
+    sign_up: "Зарегистрироваться"
+    back: "Назад"
+    show: "Показать"
+    edit: "Редактировать"
+    delete: "Удалить"
+    confirm: "Вы уверены?"

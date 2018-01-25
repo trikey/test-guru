@@ -1,13 +1,13 @@
 <footer>
   <div>
     &copy;<%= current_year %>
-    Ivan Belitskii
+    <%= t('.author') %>
   </div>
   <div>
     <p><%= github_url 'trikey', 'test-guru', 'Test Guru' %></p>
-    <p>Project for tests</p>
+    <p><%= t('.for_tests') %></p>
   </div>
   <div>
-    <a href="http://thinknetica.com" target="_blank">Учебный проект в онлайн-школе Thinknetica</a>
+    <a href="http://thinknetica.com" target="_blank"><%= t('.test_project') %></a>
   </div>
 </footer>

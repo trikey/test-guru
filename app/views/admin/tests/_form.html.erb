@@ -1,4 +1,4 @@
-<%= link_to 'Back to tests', admin_tests_path %>
+<%= link_to t('common.back'), admin_tests_path %>
 <%= form_with model: [:admin, @test], local: true do |form| %>
   <%= render 'shared/errors', model: @test %>
   <p>
@@ -11,7 +11,7 @@
   </p>
   <p>
     <%= form.label :category_id %><br>
-    <%= form.collection_select :category_id, Category.all, :id, :title %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
   <p>
     <%= form.submit %>

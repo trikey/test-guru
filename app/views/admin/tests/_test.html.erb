@@ -1,9 +1,9 @@
 <li>
   <%= test.title %>(<%= test.questions.count %>)
-  <%= link_to 'show', admin_test_path(test) %>
-  <%= link_to 'edit', edit_admin_test_path(test) %>
-  <%= link_to 'delete',
+  <%= link_to t('common.show'), admin_test_path(test) %>
+  <%= link_to t('common.edit'), edit_admin_test_path(test) %>
+  <%= link_to t('common.delete'),
               admin_test_path(test),
               method: :delete,
-              data: { confirm: 'O, RLY?' } %>
+              data: { confirm: t('common.confirm') } %>
 </li>

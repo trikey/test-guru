@@ -1,10 +1,10 @@
-<%= link_to 'Back to tests', admin_tests_path %>
+<%= link_to t('common.back'), admin_tests_path %>
 <p><%= @test.title %></p>
-<p>Category: <%= @test.category.title %></p>
-<p>Level: <%= @test.level %></p>
+<p><%= t('helpers.label.test.category_id') %>: <%= @test.category.title %></p>
+<p><%= t('helpers.label.test.level') %>: <%= @test.level %></p>
 <br/>
-<p>Questions</p>
+<p><%= t('.questions') %></p>
 <ul>
   <%= render @test.questions %>
 </ul>
-<%= link_to 'New question', new_admin_test_question_path(@test) %>
+<%= link_to t('.new_question'), new_admin_test_question_path(@test) %>

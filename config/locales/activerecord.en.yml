@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+
+    attributes:
+      test:
+        title: "Name"
+        level: "Level"
+        category: "Category"
+
+    errors:
+      messages:
+        blank: "can not be blank"

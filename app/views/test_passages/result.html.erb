@@ -1,8 +1,8 @@
-<h1>The <%= @test_passage.test.title %> completed!</h1>
-<p><%= @test_passage.correct_answers_percent %>% out of 100% were correct answers</p>
+<h1><%= @test_passage.test.title %> <%= t('.completed') %></h1>
+<p><%= @test_passage.correct_answers_percent %>% <%= t('.out_of') %></p>
 <% if @test_passage.correct_answers_percent >= 85 %>
-  <p class="passed">Test passed!!!</p>
+  <p class="passed"><%= t('.passed') %></p>
 <% else %>
-  <p class="failed">Test failed!!!</p>
+  <p class="failed"><%= t('.failed') %></p>
 <% end %>
-<%= link_to 'Tests', tests_path %>
+<%= link_to t('common.tests'), tests_path %>

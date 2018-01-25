@@ -1,11 +1,11 @@
-<%= link_to 'Test-Guru', '/' %>
+<%= link_to 'Test-Guru', root_path %>
 <% if user_signed_in? %>
-  <p>Welcome to Admin Panel, <b><%= "#{current_user.first_name} #{current_user.last_name}" %> Guru</b></p>
-  <p><%= link_to 'Logout', destroy_user_session_path, method: :delete %></p>
-  <p><%= link_to 'Tests', admin_tests_path %></p>
+  <p><%= t('.welcome') %>, <b><%= "#{current_user.first_name} #{current_user.last_name}" %> <%= t('.guru') %></b></p>
+  <p><%= link_to t('common.logout'), destroy_user_session_path, method: :delete %></p>
+  <p><%= link_to t('common.tests'), admin_tests_path %></p>
 <% else %>
   <p>
-    <%= link_to 'Login', new_user_session_path %>
-    <%= link_to 'Sign up', new_user_registration_path %>
+    <%= link_to t('common.login'), new_user_session_path %>
+    <%= link_to t('common.sign_up'), new_user_registration_path %>
   </p>
 <% end %>
