@@ -1,0 +1,14 @@
+<%= link_to 'Back to test questions', admin_test_path(@question.test) %>
+<%= form_with model: [:admin, @test, @question], local: true do |form| %>
+  <%= render 'shared/errors', model: @question %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p> <p>
+    <%= form.label :number %><br>
+    <%= form.number_field :number %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

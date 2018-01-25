@@ -1,0 +1,9 @@
+<li>
+  <%= test.title %>(<%= test.questions.count %>)
+  <%= link_to 'show', admin_test_path(test) %>
+  <%= link_to 'edit', edit_admin_test_path(test) %>
+  <%= link_to 'delete',
+              admin_test_path(test),
+              method: :delete,
+              data: { confirm: 'O, RLY?' } %>
+</li>

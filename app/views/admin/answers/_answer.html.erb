@@ -1,0 +1,9 @@
+<li>
+  <%= answer.body %>,
+  correct: <%= answer.correct %>
+  <%= link_to 'edit', edit_admin_answer_path(answer) %>
+  <%= link_to 'delete',
+              admin_answer_path(answer),
+              method: :delete,
+              data: { confirm: 'O, RLY?' } %>
+</li>

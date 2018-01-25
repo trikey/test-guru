@@ -9,9 +9,9 @@
 user = User.create(first_name: 'Ivan',
                    last_name: 'Belitskii',
                    email: 'belitskii@gmail.com',
-                   password: '123123',
-                   password_confirmation: '123123',
-                   permission: 1)
+                   password: 'asdasd',
+                   password_confirmation: 'asdasd',
+                   confirmed_at: DateTime.now)
 
 categories = Category.create([{ title: 'php' }, { title: 'ruby' }])
 
