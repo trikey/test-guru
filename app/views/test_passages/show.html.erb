@@ -1,7 +1,7 @@
-<h1>Pass the <%= @test_passage.test.title %>></h1>
+<h1><%= t('.passage_of_test') %> <%= @test_passage.test.title %></h1>
 
-<p>Всего вопросов: <%= @test_passage.test.questions.count %></p>
-<p>Вопрос №<%= @test_passage.current_question.number %></p>
+<p><%= t('.total_questions') %>: <%= @test_passage.test.questions.count %></p>
+<p><%= t('.question') %> №<%= @test_passage.current_question.number %></p>
 <b>
   <%= @test_passage.current_question.body %>
 </b>
@@ -16,5 +16,5 @@
         </p>
     <% end %>
 
-    <%= form.submit 'Next question' %>
+    <%= form.submit t('.next_question') %>
 <% end %>

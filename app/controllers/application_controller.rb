@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :set_locale
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
@@ -15,5 +16,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def default_url_options
+    if I18n.locale != I18n.default_locale
+      { lang: I18n.locale }
+    else
+      {}
+    end
+  end
+
+  private
+
+  def set_locale
+    I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
+  end
 
 end
