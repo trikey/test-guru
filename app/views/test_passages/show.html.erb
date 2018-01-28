@@ -1,20 +1,28 @@
-<h1><%= t('.passage_of_test') %> <%= @test_passage.test.title %></h1>
+<div class="row">
+  <div class="col mt-3">
+    <h1><%= t('.passage_of_test') %> <%= @test_passage.test.title %></h1>
 
-<p><%= t('.total_questions') %>: <%= @test_passage.test.questions.count %></p>
-<p><%= t('.question') %> №<%= @test_passage.current_question.number %></p>
-<b>
-  <%= @test_passage.current_question.body %>
-</b>
-<br>
+    <h4 class="mt-4"><%= t('.total_questions') %>: <%= @test_passage.test.questions.count %></h4>
+    <h5 class="mt-3"><%= t('.question') %> №<%= @test_passage.current_question.number %></h5>
 
-<%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
-    <%= form.collection_radio_buttons :answer_id, @test_passage.current_question.answers, :id, :body,
-                                      include_hidden: false do |b| %>
-        <p>
-          <%= b.radio_button %>
-          <%= b.label %>
-        </p>
-    <% end %>
-
-    <%= form.submit t('.next_question') %>
-<% end %>
+    <b>
+      <%= @test_passage.current_question.body %>
+    </b>
+    <div class="card border-primary mt-3">
+      <div class="card-body">
+        <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
+          <div class="form-group">
+            <%= form.collection_radio_buttons :answer_id, @test_passage.current_question.answers, :id, :body,
+                                              include_hidden: false do |b| %>
+                <p>
+                  <%= b.radio_button %>
+                  <%= b.label %>
+                </p>
+            <% end %>
+            <%= form.submit t('.next_question'), class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

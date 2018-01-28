@@ -1,13 +1,13 @@
-<footer>
-  <div>
-    &copy;<%= current_year %>
-    <%= t('.author') %>
-  </div>
-  <div>
-    <p><%= github_url 'trikey', 'test-guru', 'Test Guru' %></p>
-    <p><%= t('.for_tests') %></p>
-  </div>
-  <div>
-    <a href="http://thinknetica.com" target="_blank"><%= t('.test_project') %></a>
+<footer class="footer">
+  <div class="container">
+    <div class="float-left">
+      &copy;<%= current_year %>
+      <%= t('.author') %>
+      <%= github_url 'trikey', 'test-guru', 'Test Guru' %> -
+      <%= t('.for_tests') %>
+    </div>
+    <div class="float-right">
+      <a href="http://thinknetica.com" target="_blank"><%= t('.test_project') %></a>
+    </div>
   </div>
 </footer>

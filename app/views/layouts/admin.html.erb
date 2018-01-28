@@ -9,13 +9,11 @@
 </head>
 
 <body>
-
-<%= render 'admin/nav' %>
-
-<%= flash_message %>
-
-<%= yield %>
-
-<%= render 'shared/footer' %>
+  <%= render 'admin/nav' %>
+    <div class="container">
+      <%= flash_message %>
+      <%= yield %>
+    </div>
+  <%= render 'shared/footer' %>
 </body>
 </html>

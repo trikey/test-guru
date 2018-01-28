@@ -1,6 +1,8 @@
-<div>
-  <h1><%= t('common.tests') %></h1>
-  <ul>
-    <%= render @tests %>
-  </ul>
+<div class="row">
+  <div class="col mt-3">
+    <h1><%= t('common.tests') %></h1>
+    <table class="table-sm table-hover table-bordered">
+      <%= render @tests %>
+    </table>
+  </div>
 </div>

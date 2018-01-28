@@ -4,7 +4,7 @@
   </h2>
   <ul>
     <% model.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+      <li class="text-danger"><%= message %></li>
     <% end %>
   </ul>
 <% end %>

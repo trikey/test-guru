@@ -1,11 +1,8 @@
-<%= link_to 'Test-Guru', root_path %>
-<% if user_signed_in? %>
-  <p><%= t('.welcome') %>, <b><%= "#{current_user.first_name} #{current_user.last_name}" %> <%= t('.guru') %></b></p>
-  <p><%= link_to t('common.logout'), destroy_user_session_path, method: :delete %></p>
-  <p><%= link_to t('common.tests'), admin_tests_path %></p>
-<% else %>
-  <p>
-    <%= link_to t('common.login'), new_user_session_path %>
-    <%= link_to t('common.sign_up'), new_user_registration_path %>
-  </p>
-<% end %>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'Test-Guru', root_path, class: 'navbar-brand' %>
+  <span class="navbar-text">
+    <%= t('.welcome') %>, <b><%= "#{current_user.first_name} #{current_user.last_name}" %> <%= t('.guru') %></b> |
+    <%= link_to t('admin.tests.edit_tests'), admin_tests_path %> |
+    <%= link_to t('common.logout'), destroy_user_session_path, method: :delete %>
+  </span>
+</nav>

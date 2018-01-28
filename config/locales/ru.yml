@@ -45,6 +45,7 @@ ru:
       show:
         questions: "Вопросы"
         new_question: "Новый вопрос"
+      edit_tests: "Управление тестами"
 
   tests:
     test:
