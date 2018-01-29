@@ -45,6 +45,7 @@ en:
       show:
         questions: "Questions"
         new_question: "New question"
+      edit_tests: "Admin tests"
 
   tests:
     test:

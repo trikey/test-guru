@@ -35,6 +35,9 @@ gem 'devise', '~> 4.0'
 
 gem 'rails-i18n', '~> 5.0.0'
 
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.0.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

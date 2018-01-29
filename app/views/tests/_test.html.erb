@@ -1,4 +1,4 @@
-<li>
-  <%= test.title %>(<%= test.questions.count %>)
-  <%= button_to t('.start'), start_test_path(test) %>
-</li>
+<tr>
+  <td><%= test.title %>(<%= test.questions.count %>)</td>
+  <td><%= button_to t('.start'), start_test_path(test), class: 'btn btn-primary' %></td>
+</tr>
