@@ -11,7 +11,8 @@ user = User.create(first_name: 'Ivan',
                    email: 'belitskii@gmail.com',
                    password: 'asdasd',
                    password_confirmation: 'asdasd',
-                   confirmed_at: DateTime.now)
+                   confirmed_at: Date.current,
+                   type: 'Admin')
 
 categories = Category.create([{ title: 'php' }, { title: 'ruby' }])
 

@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   enum permission: { admin: 1, editor: 2, user: 3 }
 
-  has_many :authored_tests, class_name: 'Test', foreign_key: :author_id, dependent: :nullify
+  has_many :authored_tests, class_name: 'Test', foreign_key: :author_id, dependent: :nullify, inverse_of: :author
   has_many :test_passages, dependent: :destroy
   has_many :tests, through: :test_passages
 
@@ -28,6 +28,6 @@ class User < ApplicationRecord
   end
 
   def admin?
-    self.is_a?(Admin)
+    is_a?(Admin)
   end
 end

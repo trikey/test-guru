@@ -35,9 +35,11 @@ gem 'devise', '~> 4.0'
 
 gem 'rails-i18n', '~> 5.0.0'
 
-gem 'jquery-rails'
 gem 'bootstrap', '~> 4.0.0'
-
+gem 'faraday'
+gem 'jquery-rails'
+gem "octokit", "~> 4.0"
+gem 'dotenv-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -55,8 +57,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'letter_opener'
+  gem 'web-console', '>= 3.3.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,65 +1,104 @@
-
-# Disable global vars
-Style/SpecialGlobalVars:
-  Enabled: false
-
-# Disable class length restriction
-Metrics/ClassLength:
-  Enabled: false
-
-# Disable module length restriction
-Metrics/ModuleLength:
-  Enabled: false
-
-# Disable method length restriction
-Metrics/MethodLength:
-  Enabled: false
-
-# Disable checking of ABC metrics (assignment, branch, condition)
-Metrics/AbcSize:
-  Enabled: false
-
-# Disable method perceived complexity (how it is hard to read a method)
-Metrics/PerceivedComplexity:
-  Enabled: false
-
-# Disable cyclomatic complexity which is a number of paths through a method
-Metrics/CyclomaticComplexity:
-  Enabled: false
-
-# Block nesting is 5
-Metrics/BlockNesting:
-  Max: 5
-
-# Set max line length to 120
-Metrics/LineLength:
-  Max: 120
-
-Style/Documentation:
-  Enabled: false
-
-# Trailing comma helps not to forget to put it
-# if you want to add new value below
-Style/TrailingCommaInLiteral:
-  Enabled: false
-
-# It is totally ok to use block chain by my preference
-# It promotes functional programming style
-Style/MultilineBlockChain:
-  Enabled: false
-
-# extend self uses ruby inheritance instead of copying methods
-Style/ModuleFunction:
-  Enabled: false
-
 AllCops:
-  DisplayCopNames: true
+  TargetRubyVersion: 2.3
   Exclude:
     - db/schema.rb
-    - bin/**
-    - spec/dummy/bin/**
-    - spec/dummy/db/**
-    - Guardfile
+    - db/migrate/*
+    - bin/*
+    - Gemfile
+    - Gemfile.lock
 
 Rails:
   Enabled: true
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+AlignParameters:
+  Enabled: false
+
+ClassLength:
+  CountComments: false
+  Max: 150
+
+ModuleLength:
+  CountComments: false
+  Max: 250
+
+Documentation:
+  Enabled: false
+
+LineLength:
+  Max: 150
+
+MethodLength:
+  CountComments: false
+  Max: 50
+
+BlockLength:
+  CountComments: false
+  Max: 50
+  Exclude:
+    - '**/spec/**/*'
+    - '**/*.rake'
+
+Metrics/AbcSize:
+ Max: 45
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Style/BarePercentLiterals:
+  Enabled: false
+
+Style/MutableConstant:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Performance/RegexpMatch:
+  Enabled: false
+
+Style/UnneededPercentQ:
+  Enabled: false
+
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/AndOr:
+  Exclude:
+    - '**/*controller.rb'

@@ -1,7 +1,8 @@
 module SessionsHelper
   def flash_message
-    flash.map do |key, message|
+    flashes = flash.map do |key, message|
       render partial: 'shared/alert', locals: { text: message, css_class: key }
-    end.join.html_safe
+    end
+    safe_join flashes
   end
 end

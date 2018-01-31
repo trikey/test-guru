@@ -5,9 +5,11 @@
     <h4 class="mt-4"><%= t('.total_questions') %>: <%= @test_passage.test.questions.count %></h4>
     <h5 class="mt-3"><%= t('.question') %> №<%= @test_passage.current_question.number %></h5>
 
-    <b>
-      <%= @test_passage.current_question.body %>
-    </b>
+    <p>
+      <b>
+        <%= @test_passage.current_question.body %>
+      </b>
+    </p>
     <div class="card border-primary mt-3">
       <div class="card-body">
         <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form| %>
@@ -19,6 +21,9 @@
                   <%= b.label %>
                 </p>
             <% end %>
+            <p>
+              <%= link_to t('.gist_question'), gist_test_passage_path(@test_passage), method: :post %>
+            </p>
             <%= form.submit t('.next_question'), class: 'btn btn-primary' %>
           </div>
         <% end %>
