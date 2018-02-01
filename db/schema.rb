@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180124081014) do
+ActiveRecord::Schema.define(version: 20180131205308) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "body", null: false
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20180124081014) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "gists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "unique_hash", null: false
+    t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_gists_on_question_id"
+    t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -89,6 +99,8 @@ ActiveRecord::Schema.define(version: 20180124081014) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "gists", "questions"
+  add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"
   add_foreign_key "test_passages", "questions", column: "current_question_id"
   add_foreign_key "tests", "categories"

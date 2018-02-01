@@ -57,11 +57,15 @@ ru:
       passage_of_test: "Прохождение теста"
       total_questions: "Всего вопросов"
       question: "Вопрос"
+      gist_question: "Gist"
     result:
       completed: "Завершен"
       out_of: "из 100% были верными"
       passed: "Тест пройден!!!"
       failed: "Тест не пройден!!!"
+    gist:
+      success: "Gist сохранен!"
+      failure: "gist не сохранен"
 
   common:
     login: "Войти"
@@ -73,3 +77,4 @@ ru:
     edit: "Редактировать"
     delete: "Удалить"
     confirm: "Вы уверены?"
+    gist_description: "A question about %{title} from TestGuru"
