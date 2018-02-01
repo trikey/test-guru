@@ -39,6 +39,8 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'faraday'
 gem 'jquery-rails'
 gem "octokit", "~> 4.0"
+gem "octicons_helper"
+
 gem 'dotenv-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,7 +1,17 @@
 <div>
   <h1><%= t('.header') %></h1>
-  <ul>
+  <table class="table">
+    <tr>
+      <th class="sort-by-title pointer">
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+        title
+      </th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
     <%= render @tests %>
-  </ul>
+  </table>
   <%= link_to t('.new_test'), new_admin_test_path %>
 </div>
