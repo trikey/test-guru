@@ -18,18 +18,15 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    gist = GistQuestionService.new(@test_passage.current_question).call
+    result = GistQuestionService.new(@test_passage.current_question).call
 
-    if gist['id']
-      Gist.create(
-        unique_hash: gist['id'],
-        question: @test_passage.current_question,
-        user: current_user
-      )
-    end
+    @gist = current_user.gists.new(
+      unique_hash: result['id'],
+      question: @test_passage.current_question
+    )
 
-    flash_options = if gist['html_url']
-                      { notice: "#{t('.success')} #{gist['html_url']}" }
+    flash_options = if @gist.save
+                      { notice: "#{t('.success')} #{result['html_url']}" }
                     else
                       { notice: t('.failure') }
                     end
