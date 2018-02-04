@@ -1,9 +1,17 @@
 <tr>
   <td>
-    <%= test.title %>(<%= test.questions.count %>)
+    <%= content_tag :span,
+                    "#{test.title} (#{test.questions.count})",
+                    class: 'test-title',
+                    data: { test_id: test.id } %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
   <td><%= link_to t('common.show'), admin_test_path(test) %></td>
-  <td><%= link_to t('common.edit'), edit_admin_test_path(test) %></td>
+  <td><%= link_to t('common.edit'),
+                  edit_admin_test_path(test),
+                  data: { test_id: test.id },
+                  class: 'form-inline-link'
+  %></td>
   <td><%= link_to t('common.delete'),
               admin_test_path(test),
               method: :delete,
