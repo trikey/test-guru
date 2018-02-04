@@ -1,9 +1,11 @@
-<li>
-  <%= test.title %>(<%= test.questions.count %>)
-  <%= link_to t('common.show'), admin_test_path(test) %>
-  <%= link_to t('common.edit'), edit_admin_test_path(test) %>
-  <%= link_to t('common.delete'),
+<tr>
+  <td>
+    <%= test.title %>(<%= test.questions.count %>)
+  </td>
+  <td><%= link_to t('common.show'), admin_test_path(test) %></td>
+  <td><%= link_to t('common.edit'), edit_admin_test_path(test) %></td>
+  <td><%= link_to t('common.delete'),
               admin_test_path(test),
               method: :delete,
-              data: { confirm: t('common.confirm') } %>
-</li>
+              data: { confirm: t('common.confirm') } %></td>
+</tr>
