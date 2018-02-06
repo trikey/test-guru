@@ -7,12 +7,10 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 gem 'rubocop', '~> 0.51.0', require: false
 
-gem 'mysql2'
+#gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -40,6 +38,7 @@ gem 'faraday'
 gem 'jquery-rails'
 gem "octokit", "~> 4.0"
 gem "octicons_helper"
+gem "pg", "~> 0.18"
 
 gem 'dotenv-rails'
 # Use Capistrano for deployment
