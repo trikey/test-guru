@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col mt-3">
+    <h1>Contact us</h1>
+    <%= render 'shared/errors', model: @model %>
+    <%= form_for :contact, method: :post, local: true do |form| %>
+        <p>
+          <%= form.label :name %><br>
+          <%= form.text_field :name %>
+        </p>
+        <p>
+          <%= form.label :email %><br>
+          <%= form.email_field :email %>
+        </p>
+        <p>
+          <%= form.label :text %><br>
+          <%= form.text_area :text %>
+        </p>
+        <p>
+          <%= form.submit %>
+        </p>
+    <% end %>
+  </div>
+</div>
