@@ -1,6 +1,7 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show result update gist]
+  before_action :check_passage_time, only: %i[show update]
 
   def show; end
 
@@ -38,5 +39,9 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def check_passage_time
+    redirect_to tests_path, alert: 'time is out!' if @test_passage.time_left <= 0
   end
 end
