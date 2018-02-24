@@ -18,7 +18,6 @@ categories = Category.create([{ title: 'php' }, { title: 'ruby' }])
 
 tests = []
 tests << Test.create(title: 'php for beginners', level: 1, category: categories.first, author: user)
-tests << Test.create(title: 'active record for monsters', level: 3, category: categories.last, author: user)
 tests << Test.create(title: 'ruby for php developers', level: 2, category: categories.last, author: user)
 
 questions = []
@@ -31,7 +30,7 @@ questions << Question.create(body: 'What is a hash in ruby?', number: 1, test: t
 questions << Question.create(body: 'What is a block in ruby?', number: 2, test: tests.last)
 
 Answer.create(body: 'Hypertext processor', correct: 1, question: questions.first)
-Answer.create(body: 'Personal Hypertext processor', question: questions.first)
+Answer.create(body: 'Page Hypertext processor', question: questions.first)
 Answer.create(body: 'HTML', question: questions.first)
 
 Answer.create(body: '<?php...?>', correct: 1, question: questions.second)
@@ -43,5 +42,5 @@ Answer.create(body: 'Array', question: questions.third)
 Answer.create(body: 'Ruby do not support hashes', question: questions.third)
 
 Answer.create(body: 'A block consists of chunks of code', correct: 1, question: questions.fourth)
-Answer.create(body: 'Function', question: questions.fourth)
+Answer.create(body: 'WTF?', question: questions.fourth)
 Answer.create(body: 'Ruby do not support blocks', question: questions.fourth)

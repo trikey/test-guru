@@ -4,5 +4,6 @@
     <%= t('.welcome') %>, <b><%= "#{current_user.first_name} #{current_user.last_name}" %> <%= t('.guru') %></b> |
     <%= link_to t('admin.tests.edit_tests'), admin_tests_path %> |
     <%= link_to t('common.logout'), destroy_user_session_path, method: :delete %>
+     | <%= link_to 'Contact us', contacts_path %>
   </span>
 </nav>

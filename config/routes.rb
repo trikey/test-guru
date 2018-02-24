@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/contacts', to: 'contacts#index', as: 'contacts'
+  post '/contacts', to: 'contacts#submit'
+
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member
