@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-
   def index; end
 
   def submit
@@ -17,5 +16,4 @@ class ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(:name, :email, :text)
   end
-
 end
