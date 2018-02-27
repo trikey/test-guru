@@ -4,7 +4,7 @@
 
     <h4 class="mt-4"><%= t('.total_questions') %>: <%= @test_passage.test.questions.count %></h4>
     <h5 class="mt-3"><%= t('.question') %> №<%= @test_passage.current_question.number %></h5>
-
+    <div class="timer" id="timer" data-time="<%= @test_passage.time_left %>"></div>
     <div class="progress">
       <%= content_tag :div,
                       '',

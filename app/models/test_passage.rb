@@ -22,6 +22,10 @@ class TestPassage < ApplicationRecord
     (correct_questions * 100 / test.questions.count).round
   end
 
+  def time_left
+    (test.time * 60) - (Time.current.to_i - created_at.to_i)
+  end
+
   private
 
   def correct_answer?(answer_id)
