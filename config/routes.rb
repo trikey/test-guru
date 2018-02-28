@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: :create
   resources :sessions, only: :create
   resources :badges, only: :index
-  get '/badges/my', to: 'badges#my', as: 'my_badges'
+  resources :badges, only: :index do
+    get :my, on: :collection
+  end
 
   resources :tests, only: :index do
     member do

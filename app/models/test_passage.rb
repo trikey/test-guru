@@ -8,10 +8,10 @@ class TestPassage < ApplicationRecord
   scope :passing, -> { where(status: statuses[:passing]) }
   scope :failed, -> { where(status: statuses[:failed]) }
   scope :passed, -> { where(status: statuses[:passed]) }
+  scope :tests_by_level, ->(level) { joins(:test).where(tests: { level: level }).pluck(:test_id) }
 
   before_create :set_passing_status
   before_save :before_save_set_current_question
-  after_save :add_badges
 
   def accept!(answer_id)
     self.correct_questions += 1 if correct_answer?(answer_id)
@@ -24,6 +24,12 @@ class TestPassage < ApplicationRecord
 
   def correct_answers_percent
     (correct_questions * 100 / test.questions.count).round
+  end
+
+  def add_badges
+    Badge.find_each do |badge|
+      user.badges.push(badge) if badge.suitable?(self)
+    end
   end
 
   private
@@ -43,15 +49,5 @@ class TestPassage < ApplicationRecord
 
   def set_passing_status
     self.status = TestPassage.statuses[:passing]
-  end
-
-  def add_badges
-    if completed?
-      Badge.all.each do |badge|
-        if badge.suitable?(self)
-          self.user.badges.push(badge)
-        end
-      end
-    end
   end
 end

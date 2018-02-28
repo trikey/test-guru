@@ -1,5 +1,5 @@
 <%= link_to t('common.back'), admin_badges_path %>
 <p><%= @badge.name %></p>
 <p><%= image_tag @badge.path %></p>
-<p>Rule: <%= Badge.rule @badge.rule_id %></p>
+<p>Rule: <%= @badge.rule.name %></p>
 <br/>
