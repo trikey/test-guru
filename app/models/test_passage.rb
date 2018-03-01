@@ -30,6 +30,9 @@ class TestPassage < ApplicationRecord
     Badge.find_each do |badge|
       user.badges.push(badge) if badge.suitable?(self)
     end
+
+  def time_left
+    (test.time * 60) - (Time.current.to_i - created_at.to_i)
   end
 
   private

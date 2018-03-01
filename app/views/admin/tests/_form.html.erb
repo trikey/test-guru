@@ -10,6 +10,10 @@
     <%= form.number_field :level %>
   </p>
   <p>
+    <%= form.label :time %><br>
+    <%= form.number_field :time %>
+  </p>
+  <p>
     <%= form.label :category_id %><br>
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
   </p>
