@@ -1,0 +1,19 @@
+<%= link_to t('common.back'), admin_badges_path %>
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <%= render 'shared/errors', model: @badge %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :path %><br>
+    <%= form.text_field :path %>
+  </p>
+  <p>
+    <%= form.label :rule_id %><br>
+    <%= form.collection_select :rule_id, Rule.all, :id, :name, prompt: true %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

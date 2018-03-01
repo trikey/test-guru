@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   resources :users, only: :create
   resources :sessions, only: :create
+  resources :badges, only: :index
+  resources :badges, only: :index do
+    get :my, on: :collection
+  end
 
   resources :tests, only: :index do
     member do
@@ -23,6 +27,7 @@ Rails.application.routes.draw do
   post '/contacts', to: 'contacts#submit'
 
   namespace :admin do
+    resources :badges
     resources :tests do
       patch :update_inline, on: :member
       resources :questions, shallow: true, except: :index do

@@ -1,0 +1,18 @@
+<div>
+  <h1><%= t('.header') %></h1>
+  <%= render 'shared/errors', model: @badge %>
+  <table class="table">
+    <tr>
+      <th class="sort-by-title pointer">
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+        name
+      </th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <%= render @badges %>
+  </table>
+  <%= link_to t('.new_badge'), new_admin_badge_path %>
+</div>

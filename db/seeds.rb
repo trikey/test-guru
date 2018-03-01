@@ -44,3 +44,8 @@ Answer.create(body: 'Ruby do not support hashes', question: questions.third)
 Answer.create(body: 'A block consists of chunks of code', correct: 1, question: questions.fourth)
 Answer.create(body: 'WTF?', question: questions.fourth)
 Answer.create(body: 'Ruby do not support blocks', question: questions.fourth)
+
+Rule.create(name: 'First successful test passage', rule_type: 'first_success')
+Rule.create(name: 'Passed all first level tests', rule_type: 'by_level', rule_value: 1)
+Rule.create(name: 'Passed all second level tests', rule_type: 'by_level', rule_value: 2)
+Rule.create(name: 'Failed 2 times', rule_type: 'by_failed', rule_value: 2)

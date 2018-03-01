@@ -1,12 +1,16 @@
 class TestPassage < ApplicationRecord
-  enum status: { passing: 1, passed_with_errors: 2, passed: 3 }
+  enum status: { passing: 1, failed: 2, passed: 3 }
 
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true, inverse_of: :test_passages
 
-  scope :passing, -> { where(status: status[:passing]) }
+  scope :passing, -> { where(status: statuses[:passing]) }
+  scope :failed, -> { where(status: statuses[:failed]) }
+  scope :passed, -> { where(status: statuses[:passed]) }
+  scope :tests_by_level, ->(level) { joins(:test).where(tests: { level: level }).pluck(:test_id) }
 
+  before_create :set_passing_status
   before_save :before_save_set_current_question
 
   def accept!(answer_id)
@@ -22,6 +26,11 @@ class TestPassage < ApplicationRecord
     (correct_questions * 100 / test.questions.count).round
   end
 
+  def add_badges
+    Badge.find_each do |badge|
+      user.badges.push(badge) if badge.suitable?(self)
+    end
+
   def time_left
     (test.time * 60) - (Time.current.to_i - created_at.to_i)
   end
@@ -35,5 +44,13 @@ class TestPassage < ApplicationRecord
   def before_save_set_current_question
     return self.current_question = test.questions.order(:number).first if current_question.nil?
     self.current_question = test.questions.order(:number).find_by('number > ?', current_question.number)
+
+    if completed?
+      self.status = correct_answers_percent >= 85 ? TestPassage.statuses[:passed] : TestPassage.statuses[:failed]
+    end
+  end
+
+  def set_passing_status
+    self.status = TestPassage.statuses[:passing]
   end
 end
